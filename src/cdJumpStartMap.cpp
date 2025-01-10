@@ -6,8 +6,7 @@
 #include "../Util/atlHelperMethods.h"
 #include "cdJumpStartMap.h"
 
-namespace attila
-{
+namespace ceed::ai::path {
 	//------------------------------------------------------------------------------------------------//
 
 	const cdJumpStartMap::Direction cdJumpStartMap::DirectionList[8] =
