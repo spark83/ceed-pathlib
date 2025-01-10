@@ -1,61 +1,49 @@
 /*!
- * \file atlJumpStartMap.h
+ * \file cdJumpStartMap.h
  * Copyright (c) Punch First 2014 - 2016 All rights reserved.
  */
-#ifndef _ATLJUMPSTARTMAP_H_
-#define _ATLJUMPSTARTMAP_H_
+#ifndef _CDJUMPSTARTMAP_H_
+#define _CDJUMPSTARTMAP_H_
 
-#include "atlAStarMap.h"
+#include "cdAStarMap.h"
+#include "cdAstar.h"
 
-namespace attila
-{
-	enum atlGridCellType : char
-	{
+namespace ceed::ai::path {
+	enum atlGridCellType : char {
 		EMPTY = '.',
 		BLOCKED = '#'
 	};
 
-	struct atlGridCoord
-	{
+	struct cdGridCoord {
 		int X, Y;
 
-		inline atlGridCoord(int x = 0, int y = 0) : X(x), Y(y) { }
-		inline atlGridCoord(const atlGridCoord &cell) : X(cell.X), Y(cell.Y) { }
+		inline cdGridCoord(int x = 0, int y = 0) : X(x), Y(y) { }
+		inline cdGridCoord(const cdGridCoord& cell) : X(cell.X), Y(cell.Y) { }
 
-		// Operator =.
-		inline void operator =(const atlGridCoord &cell)
-		{
+		inline void operator =(const cdGridCoord& cell) {
 			X = cell.X;
 			Y = cell.Y;
 		}
 
-		// Operator ==.
-		inline bool operator ==(const atlGridCoord &cell) const
-		{
+		inline bool operator ==(const cdGridCoord& cell) const {
 			return (X == cell.X) && (Y == cell.Y);
 		}
 	};
 
-	class atlJumpStartMap : public atlAStarMap<atlGridCoord>
-	{
+	class atlJumpStartMap : public atlAStarMap<cdGridCoord> {
 		private:
-
-			struct Direction
-			{
+			struct Direction {
 				int X, Y;
-
-				inline Direction(int x = 0, int y = 0) : X(x), Y(y)
-				{
-				}
+				inline Direction(int x = 0, int y = 0)
+				: X(x)
+				, Y(y) {}
 			};
 
-			static const Direction DirectionList[8];
+			static constexpr Direction DirectionList[8];
 
 		protected:
-
 			int m_NumCols;
 			int m_NumRows;
-
 			int m_ArraySize;
 
 		protected:
@@ -66,29 +54,26 @@ namespace attila
 				int tieType,
 				int rows = 0,
 				int cols = 0);
-			
-			inline virtual ~atlJumpStartMap(void)
-			{
 
-			}
+			inline virtual ~atlJumpStartMap() override {}
 
-			void Prune(const atlAStar<atlGridCoord>* astar,
-				const atlNode<atlGridCoord> & current,
-				std::vector< atlGridCoord > & result);
+			void Prune(const cdAStar<cdGridCoord>* astar,
+				const cdNode<cdGridCoord> & current,
+				std::vector<cdGridCoord> & result);
 
-			bool Jump(const atlGridCoord & current,
+			bool Jump(const cdGridCoord & current,
 				int xDir, int yDir,
-				const atlGridCoord & start,
-				const std::vector<atlGridCoord> & end,
-				atlGridCoord &resultNode);
+				const cdGridCoord& start,
+				const std::vector<cdGridCoord>& end,
+				cdGridCoord& resultNode);
 
 		public:
 
-			bool GetSucessorList(const atlAStar<atlGridCoord>* astar,
-				const atlNode<atlGridCoord>& current,
-				const atlGridCoord& start,
-				const std::vector<atlGridCoord>& end,
-				std::vector<atlGridCoord>& adjcentList);
+			bool GetSucessorList(const cdAStar<cdGridCoord>* astar,
+				const cdNode<cdGridCoord>& current,
+				const cdGridCoord& start,
+				const std::vector<cdGridCoord>& end,
+				std::vector<cdGridCoord>& adjcentList);
 	};
 }
 

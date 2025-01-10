@@ -1,37 +1,37 @@
 /*!
- * \file atlJumpStartMap.h
+ * \file cdJumpStartMap.h
  * Copyright (c) Punch First 2014 - 2016 All rights reserved.
  */
 
 #include "../Util/atlHelperMethods.h"
-#include "atlJumpStartMap.h"
+#include "cdJumpStartMap.h"
 
 namespace attila
 {
 	//------------------------------------------------------------------------------------------------//
 
-	const atlJumpStartMap::Direction atlJumpStartMap::DirectionList[8] =
+	const cdJumpStartMap::Direction cdJumpStartMap::DirectionList[8] =
 	{
-		atlJumpStartMap::Direction(0, 1),
-		atlJumpStartMap::Direction(1, 0),
-		atlJumpStartMap::Direction(0, -1),
-		atlJumpStartMap::Direction(-1, 0),
-		atlJumpStartMap::Direction(1, 1),
-		atlJumpStartMap::Direction(1, -1),
-		atlJumpStartMap::Direction(-1, -1),
-		atlJumpStartMap::Direction(-1, 1),
+		cdJumpStartMap::Direction(0, 1),
+		cdJumpStartMap::Direction(1, 0),
+		cdJumpStartMap::Direction(0, -1),
+		cdJumpStartMap::Direction(-1, 0),
+		cdJumpStartMap::Direction(1, 1),
+		cdJumpStartMap::Direction(1, -1),
+		cdJumpStartMap::Direction(-1, -1),
+		cdJumpStartMap::Direction(-1, 1),
 	};
 
 	//------------------------------------------------------------------------------------------------//
 
-	atlJumpStartMap::atlJumpStartMap(CellColFunc cellFunc,
+	cdJumpStartMap::cdJumpStartMap(CellColFunc cellFunc,
 		HeuristicsFunc heuFunc,
 		MovementCostFunc movFunc,
 		int tieType,
 		int rows,
 		int cols)
-		: atlAStarMap<atlGridCoord>(cellFunc, 
-		fastdelegate::MakeDelegate(this, &atlJumpStartMap::GetSucessorList),
+		: atlAStarMap<atlGridCoord>(cellFunc,
+		fastdelegate::MakeDelegate(this, &cdJumpStartMap::GetSucessorList),
 		heuFunc,
 		movFunc,
 		tieType)
@@ -44,7 +44,7 @@ namespace attila
 
 	//------------------------------------------------------------------------------------------------//
 
-	void atlJumpStartMap::Prune(const atlAStar<atlGridCoord>* astar,
+	void cdJumpStartMap::Prune(const atlAStar<atlGridCoord>* astar,
 		const atlNode<atlGridCoord> & current,
 		std::vector< atlGridCoord > & result)
 	{
@@ -174,7 +174,7 @@ namespace attila
 
 	//------------------------------------------------------------------------------------------------//
 
-	bool atlJumpStartMap::Jump(const atlGridCoord & current,
+	bool cdJumpStartMap::Jump(const atlGridCoord & current,
 		int xDir, int yDir,
 		const atlGridCoord & start,
 		const std::vector<atlGridCoord> & end,
@@ -319,7 +319,7 @@ namespace attila
 
 	//------------------------------------------------------------------------------------------------//
 
-	bool atlJumpStartMap::GetSucessorList(const atlAStar<atlGridCoord>* astar,
+	bool cdJumpStartMap::GetSucessorList(const atlAStar<atlGridCoord>* astar,
 		const atlNode<atlGridCoord>& current,
 		const atlGridCoord& start,
 		const std::vector<atlGridCoord>& end,
