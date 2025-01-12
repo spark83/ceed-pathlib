@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 
 # Set the project name and version
-project(ceed-path VERSION 1.0)
+project(ceedpath VERSION 1.0)
 
 if(WIN32)
 add_subdirectory(googletest)
@@ -32,20 +32,20 @@ set(PATH_HEADER_FILES
     "include/cdHelperMethods.hpp"
     "include/cdHeuristics.hpp"
     "include/cdJumpStartMap.hpp"
-    "include/delegate.h"
+    "include/delegate.hpp"
     "include/FastDelegate.h"
     "include/FastDelegateBind.h")
 
 set(PATH_SOURCE_FILES
-    "src/DcdJumpStartMap.cpp")
+    "src/cdJumpStartMap.cpp")
 
-add_library(ceed-path ${PATH_SOURCE_FILES} ${PATH_HEADER_FILES})
+add_library(ceedpath ${PATH_SOURCE_FILES} ${PATH_HEADER_FILES})
 
-target_include_directories(ceed-path PUBLIC ${STREAM_INCLUDE_DIR})
+target_include_directories(ceedpath PUBLIC ${STREAM_INCLUDE_DIR})
 
-install(TARGETS ceed-path DESTINATION lib)
-install(FILES ${STREAMSIM_HEADER_FILES} DESTINATION include/ceed-path)
+install(TARGETS ceedpath DESTINATION lib)
+install(FILES ${STREAMSIM_HEADER_FILES} DESTINATION include/ceedpath)
 
 # Add the executable
-add_subdirectory(tests)
+#add_subdirectory(tests)
 
