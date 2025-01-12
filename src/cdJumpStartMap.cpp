@@ -3,7 +3,7 @@
  * Copyright (c) Punch First 2014 - 2016 All rights reserved.
  */
 
-#include "../Util/atlHelperMethods.h"
+#include "cdHelperMethods.h"
 #include "cdJumpStartMap.h"
 
 namespace ceed::ai::path {

@@ -6,7 +6,7 @@
 #ifndef _CDHEURISTICS_H_
 #define _CDHEURISTICS_H_
 
-#include "../Util/atlHelperMethods.h"
+#include "cdHelperMethods.h"
 
 namespace ceed::ai::path {
 	template <typename T>

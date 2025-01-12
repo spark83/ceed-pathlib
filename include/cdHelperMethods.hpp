@@ -8,7 +8,6 @@
 
 #include <stdlib.h>
 #include "cdTypes.h"
-#include "Random.h"
 
 #define ATTILA_M_PI 3.14159265358979323846f
 
