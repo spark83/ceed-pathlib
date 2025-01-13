@@ -1,9 +1,9 @@
 /*!
- * \file cdAStar.h
+ * \file cdAStar.hpp
  * Copyright (c) Punch First 2014 - 2016 All rights reserved.
  */
-#ifndef _CDASTAR_H_
-#define _CDASTAR_H_
+#ifndef _CDASTAR_HPP_
+#define _CDASTAR_HPP_
 
 #include <vector>
 #include <functional>

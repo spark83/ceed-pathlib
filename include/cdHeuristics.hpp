@@ -1,10 +1,10 @@
 /*!
- * \file cdHeuristics.h
+ * \file cdHeuristics.hpp
  * Copyright (c) Punch First 2014 - 2016 All rights reserved.
  */
 
-#ifndef _CDHEURISTICS_H_
-#define _CDHEURISTICS_H_
+#ifndef _CDHEURISTICS_HPP_
+#define _CDHEURISTICS_HPP_
 
 #include <algorithm>
 

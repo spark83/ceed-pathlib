@@ -1,10 +1,10 @@
 /*!
- * \file cdHelperMethods.h
+ * \file cdHelperMethods.hpp
  * Copyright (c) Punch First 2014 - 2016 All rights reserved.
  */
 
-#ifndef __ATLHELPERMETHODS_H__
-#define __ATLHELPERMETHODS_H__
+#ifndef __CDHELPERMETHODS_HPP__
+#define __CDHELPERMETHODS_HPP__
 
 #include <stdlib.h>
 #include "cdTypes.h"

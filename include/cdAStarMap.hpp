@@ -1,13 +1,12 @@
 /*!
- * \file cdAStarMap.h
+ * \file cdAStarMap.hpp
  * Copyright (c) Punch First 2014 - 2016 All rights reserved.
  */
-#ifndef _CDASTARMAP_H_
-#define _CDASTARMAP_H_
+#ifndef _CDASTARMAP_HPP_
+#define _CDASTARMAP_HPP_
 
 #include <vector>
 #include "cdAstar.hpp"
-#include "delegate.hpp"
 #include "FastDelegate.h"
 
 namespace ceed::ai::path {

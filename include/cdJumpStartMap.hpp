@@ -1,9 +1,9 @@
 /*!
- * \file cdJumpStartMap.h
+ * \file cdJumpStartMap.hpp
  * Copyright (c) Punch First 2014 - 2016 All rights reserved.
  */
-#ifndef _CDJUMPSTARTMAP_H_
-#define _CDJUMPSTARTMAP_H_
+#ifndef _CDJUMPSTARTMAP_HPP_
+#define _CDJUMPSTARTMAP_HPP_
 
 #include "cdAStarMap.hpp"
 #include "cdAstar.hpp"
