@@ -6,7 +6,7 @@
 #ifndef _CDHEURISTICS_H_
 #define _CDHEURISTICS_H_
 
-#include "cdHelperMethods.h"
+#include <algorithm>
 
 namespace ceed::ai::path {
 	template <typename T>
@@ -16,7 +16,7 @@ namespace ceed::ai::path {
 
 	template <typename T>
 	inline T DiagonalDistance(const T p_iSrcX, const T p_iSrcY, const T p_iDstX, const T p_iDstY) {
-		return Max(abs(p_iSrcX - p_iDstX), abs(p_iSrcY - p_iDstY));
+		return std::max(abs(p_iSrcX - p_iDstX), abs(p_iSrcY - p_iDstY));
 	}
 
 	template <typename T>

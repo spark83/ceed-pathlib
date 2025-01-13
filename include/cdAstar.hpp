@@ -8,6 +8,7 @@
 #include <vector>
 #include <functional>
 #include <queue>
+
 #include "cdTypes.h"
 
 namespace ceed::ai::path {
@@ -57,7 +58,7 @@ namespace ceed::ai::path {
 		}
 	};
 
-	template <typename CELL>
+	template <typename CELL, size_t ListSize = 40000>
 	class cdAStar {
 		public:
 
@@ -75,7 +76,7 @@ namespace ceed::ai::path {
 
 		private:
 
-			inline bool IsInOpenList(const cdNode<CELL>& node) const {
+			bool IsInOpenList(const cdNode<CELL>& node) const {
 				// Find the node first.
 				typename std::vector<cdNode<CELL>>::const_iterator i =
 					find(m_OpenList.begin(), m_OpenList.end(), node);
@@ -84,7 +85,7 @@ namespace ceed::ai::path {
 				return i == m_OpenList.end() ? false : true;
 			}
 
-			inline bool IsInClosedList(const cdNode<CELL>& node) const {
+			bool IsInClosedList(const cdNode<CELL>& node) const {
 				// Find the node first.
 				typename std::vector<cdNode<CELL>>::const_iterator i =
 					find(m_ClosedList.begin(), m_ClosedList.end(), node);
@@ -95,7 +96,12 @@ namespace ceed::ai::path {
 
 		public:
 
-			inline bool GetNodeFromClosedList(const int idx, cdNode<CELL>& node) const {
+			cdAStar() {
+				m_OpenList.reserve(ListSize);
+				m_ClosedList.reserve(ListSize);
+			}
+
+			bool GetNodeFromClosedList(const int idx, cdNode<CELL>& node) const {
 				auto listSize = static_cast<int>(m_ClosedList.size());
 				if (idx < listSize) {
 					node = m_ClosedList[idx];
@@ -104,10 +110,10 @@ namespace ceed::ai::path {
 				return false;
 			}
 
-			inline bool FindPath(const CELL &start,
-				const std::vector<CELL> &endPts,
-				cdAStarMap<CELL> *pMap,
-				cdMovePath &resultPath) {
+			bool FindPath(const CELL &start,
+				const std::vector<CELL>& endPts,
+				cdAStarMap<CELL>* pMap,
+				cdMovePath& resultPath) {
 
 				static std::vector<CELL> adjcentList;
 				m_ClosedList.clear();
@@ -207,7 +213,7 @@ namespace ceed::ai::path {
 				return false;
 			}
 
-			inline bool FindPath(const CELL& start,
+			bool FindPath(const CELL& start,
 				const CELL& end,
 				cdAStarMap<CELL>* pMap,
 				cdMovePath& resultPath) {

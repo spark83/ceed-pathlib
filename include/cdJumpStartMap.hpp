@@ -5,8 +5,8 @@
 #ifndef _CDJUMPSTARTMAP_H_
 #define _CDJUMPSTARTMAP_H_
 
-#include "cdAStarMap.h"
-#include "cdAstar.h"
+#include "cdAStarMap.hpp"
+#include "cdAstar.hpp"
 
 namespace ceed::ai::path {
 	enum atlGridCellType : char {
@@ -30,17 +30,7 @@ namespace ceed::ai::path {
 		}
 	};
 
-	class atlJumpStartMap : public atlAStarMap<cdGridCoord> {
-		private:
-			struct Direction {
-				int X, Y;
-				inline Direction(int x = 0, int y = 0)
-				: X(x)
-				, Y(y) {}
-			};
-
-			static constexpr Direction DirectionList[8];
-
+	class cdJumpStartMap : public cdAStarMap<cdGridCoord> {
 		protected:
 			int m_NumCols;
 			int m_NumRows;
@@ -48,14 +38,14 @@ namespace ceed::ai::path {
 
 		protected:
 
-			atlJumpStartMap(CellColFunc cellFunc,
+			cdJumpStartMap(CellColFunc cellFunc,
 				HeuristicsFunc heuFunc,
 				MovementCostFunc movFunc,
 				int tieType,
 				int rows = 0,
 				int cols = 0);
 
-			inline virtual ~atlJumpStartMap() override {}
+			inline virtual ~cdJumpStartMap() override {}
 
 			void Prune(const cdAStar<cdGridCoord>* astar,
 				const cdNode<cdGridCoord> & current,

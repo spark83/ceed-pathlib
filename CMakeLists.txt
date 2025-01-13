@@ -41,7 +41,7 @@ set(PATH_SOURCE_FILES
 
 add_library(ceedpath ${PATH_SOURCE_FILES} ${PATH_HEADER_FILES})
 
-target_include_directories(ceedpath PUBLIC ${STREAM_INCLUDE_DIR})
+target_include_directories(ceedpath PUBLIC ${PATH_INCLUDE_DIR})
 
 install(TARGETS ceedpath DESTINATION lib)
 install(FILES ${STREAMSIM_HEADER_FILES} DESTINATION include/ceedpath)

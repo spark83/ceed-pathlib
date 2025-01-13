@@ -1,17 +1,18 @@
 /*!
- * \file atlAStarMap.h
+ * \file cdAStarMap.h
  * Copyright (c) Punch First 2014 - 2016 All rights reserved.
  */
 #ifndef _CDASTARMAP_H_
 #define _CDASTARMAP_H_
 
 #include <vector>
-#include "cdAstar.h"
+#include "cdAstar.hpp"
+#include "delegate.hpp"
 #include "FastDelegate.h"
 
 namespace ceed::ai::path {
 	template <typename NODE>
-	class atlAStarMap {
+	class cdAStarMap {
 		friend class cdAStar<NODE>;
 		public:
 			using CellColFunc = fastdelegate::FastDelegate1<const NODE&, bool>;
@@ -42,7 +43,7 @@ namespace ceed::ai::path {
 
 		public:
 
-			inline atlAStarMap(CellColFunc cellFunc,
+			inline cdAStarMap(CellColFunc cellFunc,
 				SucessorFunc sucFunc,
 				HeuristicsFunc heuFunc,
 				MovementCostFunc movFunc,
@@ -53,7 +54,7 @@ namespace ceed::ai::path {
 			, MovementCost(movFunc)
 			, Collides(cellFunc) {}
 
-			inline virtual ~atlAStarMap(void) {}
+			inline virtual ~cdAStarMap(void) {}
 
 			inline void SetTieType(int tieType) { m_TieType = tieType; }
 			inline int GetTieType() const { return m_TieType; }
