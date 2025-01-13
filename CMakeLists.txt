@@ -29,6 +29,7 @@ set(PATH_INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/include")
 set(PATH_HEADER_FILES
     "include/cdAStar.hpp"
     "include/cdAStarMap.hpp"
+    "include/cdGridMap.hpp"
     "include/cdHelperMethods.hpp"
     "include/cdHeuristics.hpp"
     "include/cdJumpStartMap.hpp"
@@ -36,6 +37,7 @@ set(PATH_HEADER_FILES
     "include/FastDelegateBind.h")
 
 set(PATH_SOURCE_FILES
+    "src/cdGridMap.cpp"
     "src/cdJumpStartMap.cpp")
 
 add_library(ceedpath ${PATH_SOURCE_FILES} ${PATH_HEADER_FILES})

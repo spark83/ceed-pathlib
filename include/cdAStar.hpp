@@ -71,6 +71,8 @@ namespace ceed::ai::path {
 			std::vector<cdNode<CELL>> m_OpenList; // Nodes that are in the open set.
 			std::vector<cdNode<CELL>> m_ClosedList; // Nodes that are visited.
 
+			std::vector<CELL> m_EndList;
+
 			// STL thingie that compares stuff.
 			GREATER m_Compare;
 
@@ -217,11 +219,10 @@ namespace ceed::ai::path {
 				const CELL& end,
 				cdAStarMap<CELL>* pMap,
 				cdMovePath& resultPath) {
-				static std::vector<CELL> endList;
-				endList.clear();
-				endList.push_back(end);
+				m_EndList.clear();
+				m_EndList.push_back(end);
 
-				return FindPath(start, endList, pMap, resultPath);
+				return FindPath(start, m_EndList, pMap, resultPath);
 			}
 	};
 }
