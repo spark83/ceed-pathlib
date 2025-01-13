@@ -27,12 +27,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 set(PATH_INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/include")
 
 set(PATH_HEADER_FILES
-    "include/cdAstar.hpp"
+    "include/cdAStar.hpp"
     "include/cdAStarMap.hpp"
     "include/cdHelperMethods.hpp"
     "include/cdHeuristics.hpp"
     "include/cdJumpStartMap.hpp"
-    "include/delegate.hpp"
     "include/FastDelegate.h"
     "include/FastDelegateBind.h")
 
@@ -47,5 +46,4 @@ install(TARGETS ceedpath DESTINATION lib)
 install(FILES ${STREAMSIM_HEADER_FILES} DESTINATION include/ceedpath)
 
 # Add the executable
-#add_subdirectory(tests)
-
+add_subdirectory(tests)

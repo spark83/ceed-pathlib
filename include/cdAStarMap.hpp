@@ -6,7 +6,7 @@
 #define _CDASTARMAP_HPP_
 
 #include <vector>
-#include "cdAstar.hpp"
+#include "cdAStar.hpp"
 #include "FastDelegate.h"
 
 namespace ceed::ai::path {

@@ -6,7 +6,7 @@
 #define _CDJUMPSTARTMAP_HPP_
 
 #include "cdAStarMap.hpp"
-#include "cdAstar.hpp"
+#include "cdAStar.hpp"
 
 namespace ceed::ai::path {
 	enum atlGridCellType : char {
